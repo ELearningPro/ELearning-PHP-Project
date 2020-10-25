@@ -10,23 +10,40 @@
     <link rel="stylesheet" href="css/all.min.css">
     <title>E-Learning</title>
     <style>
-    .fa-school {
-        color: gold;
+    body {
+        margin: 0;
+        padding: 0;
     }
 
-    img {
+    .carousel-item>img {
         height: -webkit-fill-available;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .card {
+        min-width: 240px;
+        width: 240px;
     }
     </style>
 </head>
 
 <body>
-    <div class="container bg-success">
+    <div class="container">
         <header class="sticky-top">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">
-                    <i class="fa fa-school"></i>
-                    <span class="px-2">E-Learning</span>
+                <a class="navbar-brand d-inline-flex align-items-center justify-content-center" href="#">
+                    <img src="assets/images/logo.png" class="img-fluid logo">
+                    <span class="px-2 d-inline-flex flex-column align-items-center">
+                        <span style="color:blue" class="border-bottom border-primary">
+                            e<span class="text-secondary">Learning</span>
+                        </span>
+                    </span>
+                    <span class="text-muted d-none d-sm-block" style="font-size:15px;letter-spacing:2px">- Learn &
+                        Emplement</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,10 +121,142 @@
                 </div>
             </div>
         </div>
+        <div class="row mx-0 py-2 bg-warning align-items-center">
+            <div class="col-12 col-sm-6 col-md-3 my-2">
+                <div class="d-flex align-items-center">
+                    <i class="fa fa-book-open text-light"></i>
+                    <span class="pl-2">100+ online courses</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 my-2">
+                <div class="d-flex align-items-center">
+                    <i class="fa fa-user-graduate text-light"></i>
+                    <span class="pl-2">Expert Instructors</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 my-2">
+                <div class="d-flex align-items-center">
+                    <i class="fa fa-key text-light"></i>
+                    <span class="pl-2">Lifetime Access</span>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 my-2">
+                <div class="d-flex align-items-center">
+                    <i class="fa fa-rupee-sign text-light"></i>
+                    <span class="pl-2">Money back guaranty*</span>
+                </div>
+            </div>
+        </div>
+        <section class="py-3">
+            <h3 class="text-center py-2">Popular Courses</h3>
+            <div class="d-flex flex-wrap card-deck">
+                <div class="card my-1 flex-grow-1">
+                    <div class="card-header mb-1 text-center bg-transparent border-grey">
+                        <h5 class="card-title">React Js</h5>
+                    </div>
+                    <img src="assets/images/react.png" class="card-img-top img-fluid" alt="card-img" />
+                    <div class="card-body">
+                        <small class="card-text text-muted mb-3 d-block">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui unde non nam voluptatem
+                            ipsa esse, similique officia ad aperiam tempora blanditiis accusantium consequuntur.
+                            Delectus beatae incidunt architecto vitae consequatur.
+                        </small>
+                    </div>
+                    <div class="card-footer text-center border-grey">
+                        <button class="btn btn-outline-primary">Button</button>
+                    </div>
+                </div>
+                <div class="card my-1 flex-grow-1">
+                    <div class="card-header mb-1 text-center bg-transparent border-grey">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <img src="assets/images/php.jpeg" class="card-img-top img-fluid" alt="card-img" />
+                    <div class="card-body">
+                        <small class="card-text text-muted mb-3 d-block">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui unde non nam voluptatem
+                            ipsa esse, similique officia ad aperiam tempora blanditiis accusantium consequuntur.
+                            Delectus beatae incidunt architecto vitae consequatur.
+                        </small>
+                    </div>
+                    <div class="card-footer text-center border-grey">
+                        <button class="btn btn-outline-primary">Button</button>
+                    </div>
+                </div>
+                <div class="card my-1 flex-grow-1">
+                    <div class="card-header mb-1 text-center bg-transparent border-grey">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <img src="assets/images/python.jpeg" class="card-img-top img-fluid" alt="card-img" />
+                    <div class="card-body">
+                        <small class="card-text text-muted mb-3 d-block">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui unde non nam voluptatem
+                            ipsa esse, similique officia ad aperiam tempora blanditiis accusantium consequuntur.
+                            Delectus beatae incidunt architecto vitae consequatur.
+                        </small>
+                    </div>
+                    <div class="card-footer text-center border-grey">
+                        <button class="btn btn-outline-primary">Button</button>
+                    </div>
+                </div>
+                <div class="card my-1 flex-grow-1">
+                    <div class="card-header mb-1 text-center bg-transparent border-grey">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <img src="assets/images/angular.png" class="card-img-top img-fluid" alt="card-img" />
+                    <div class="card-body">
+                        <small class="card-text text-muted mb-3 d-block">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui unde non nam voluptatem
+                            ipsa esse, similique officia ad aperiam tempora blanditiis accusantium consequuntur.
+                            Delectus beatae incidunt architecto vitae consequatur.
+                        </small>
+                    </div>
+                    <div class="card-footer text-center border-grey">
+                        <button class="btn btn-outline-primary">Button</button>
+                    </div>
+                </div>
+                <div class="card my-1 flex-grow-1">
+                    <div class="card-header mb-1 text-center bg-transparent border-grey">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <img src="assets/images/sketch.jpeg" class="card-img-top img-fluid" alt="card-img" />
+                    <div class="card-body">
+                        <small class="card-text text-muted mb-3 d-block">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui unde non nam voluptatem
+                            ipsa esse, similique officia ad aperiam tempora blanditiis accusantium consequuntur.
+                            Delectus beatae incidunt architecto vitae consequatur.
+                        </small>
+                    </div>
+                    <div class="card-footer text-center border-grey">
+                        <button class="btn btn-outline-primary">Button</button>
+                    </div>
+                </div>
+                <div class="card my-1 flex-grow-1">
+                    <div class="card-header mb-1 text-center bg-transparent border-grey">
+                        <h5 class="card-title">Card title</h5>
+                    </div>
+                    <img src="assets/images/veujs.png" class="card-img-top img-fluid" alt="card-img" />
+                    <div class="card-body">
+                        <small class="card-text text-muted mb-3 d-block">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui unde non nam voluptatem
+                            ipsa esse, similique officia ad aperiam tempora blanditiis accusantium consequuntur.
+                            Delectus beatae incidunt architecto vitae consequatur.
+                        </small>
+                    </div>
+                    <div class="card-footer text-center border-grey">
+                        <button class="btn btn-outline-primary">Button</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-3">
+
+        </section>
+
+
         <footer class="row bg-dark mx-0 p-3">
             <div class="col-md-6 text-justify my-3" style="color:white">
                 <h4>About</h4>
-                Lorem ipsum dolor sit amet con sectetur adipisicing elit. Quisquam exercitationem voluptatibus omnis
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam exercitationem voluptatibus omnis
                 fugit voluptatum pariatur? Unde corrupti ut quo sunt porro distinctio, nihil reprehenderit culpa facere
                 non in nisi ducimus?
             </div>
