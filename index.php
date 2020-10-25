@@ -1,3 +1,6 @@
+<?php
+    include("dbConfig.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -395,5 +398,10 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/all.min.js"></script>
+<script>
+setTimeout(() => {
+    document.getElementById("server_alert").classList.add("d-none")
+}, 4000)
+</script>
 
 </html>
