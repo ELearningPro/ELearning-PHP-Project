@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div class="container bg-danger">
+    <div class="container">
         <header class="sticky-top">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">
@@ -107,7 +107,7 @@
         <footer class="row bg-dark mx-0 p-3">
             <div class="col-md-6 text-justify my-3" style="color:white">
                 <h4>About</h4>
-                Lorem ipsum dolor sit amet con  mfgv,bghkhgsectetur adipisicing elit. Quisquam exercitationem voluptatibus omnis
+                Lorem ipsum dolor sit amet con sectetur adipisicing elit. Quisquam exercitationem voluptatibus omnis
                 fugit voluptatum pariatur? Unde corrupti ut quo sunt porro distinctio, nihil reprehenderit culpa facere
                 non in nisi ducimus?
             </div>
