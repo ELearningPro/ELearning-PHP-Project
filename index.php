@@ -363,7 +363,7 @@
                     <div class="px-3">
                         <h6>Student A.</h6>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quaerat itaque quasi totam
-                        sed saepe laboriosam iste non aliquid dolorum!
+                        sed saepe laboriosam iste non aliquid dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quisquam dolorum aliquam omnis amet mollitia repellat porro similique accusamus facere nam, distinctio iure corporis ratione, ipsam quod provident doloribus expedita!
                     </div>
                 </div>
             </div>
