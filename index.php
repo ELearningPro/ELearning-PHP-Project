@@ -98,7 +98,7 @@
                     <div class="navbar-nav ml-auto">
                         <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                         <a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="signup.php">Sign Up</a>
                     </div>
                 </div>
             </nav>
