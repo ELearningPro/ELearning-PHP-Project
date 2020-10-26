@@ -174,8 +174,8 @@
                     <div class="card-body">
                         <small class="card-text text-muted mb-3 d-block">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui unde non nam voluptatem
-                            ipsa esse, similique officia ad aperiam tempora blanditiis accusantium consequuntur.
-                            Delectus beatae incidunt architecto vitae consequatur.
+                            ipsa esse, similiqucvxchfhccvncve officia ad aperiam tempora blanditiis accusantium consequuntur.
+                            Delectus beatae architecto vitae consequatur.
                         </small>
                     </div>
                     <div class="card-footer text-center border-grey">
