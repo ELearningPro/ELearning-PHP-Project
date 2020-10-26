@@ -1,3 +1,6 @@
+<?php
+    include("dbConfig.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +30,48 @@
     .card {
         min-width: 240px;
         width: 240px;
+    }
+
+    .rotate-card {
+        background: linear-gradient(234deg, red, white);
+        animation: rotate-card 3s linear infinite alternate;
+    }
+
+    .feedback-saction {
+        overflow-x: auto;
+    }
+
+    .feedback-saction::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .feedback-saction::-webkit-scrollbar-track {
+        border-radius: 20px;
+        box-shadow: inset 0 0 3px white;
+    }
+
+    .feedback-saction::-webkit-scrollbar-thumb {
+        background: white;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    .feedback-saction::-webkit-scrollbar-thumb:hover {
+        background: gray;
+    }
+
+    .comment-card {
+        min-width: 350px;
+    }
+
+    @keyframes rotate-card {
+        0% {
+            transform: rotate(15deg);
+        }
+
+        100% {
+            transform: rotate(-15deg);
+        }
     }
     </style>
 </head>
@@ -150,8 +195,8 @@
         <section class="py-3">
             <h3 class="text-center py-2">Popular Courses</h3>
             <div class="d-flex flex-wrap card-deck">
-                <div class="card my-1 flex-grow-1">
-                    <div class="card-header mb-1 text-center bg-transparent border-grey">
+                <div class="card my-1 flex-grow-1 mx-3">
+                    <div class="card-header text-center">
                         <h5 class="card-title">React Js</h5>
                     </div>
                     <img src="assets/images/react.png" class="card-img-top img-fluid" alt="card-img" />
@@ -162,13 +207,14 @@
                             Delectus beatae incidunt architecto vitae consequatur.
                         </small>
                     </div>
-                    <div class="card-footer text-center border-grey">
-                        <button class="btn btn-outline-primary">Button</button>
+                    <div class="card-footer text-center border-grey d-flex justify-content-between align-items-center">
+                        <span>Price : <i class="fa fa-rupee-sign"></i> 400</span>
+                        <button class="btn btn-outline-primary btn-sm">Buy</button>
                     </div>
                 </div>
-                <div class="card my-1 flex-grow-1">
-                    <div class="card-header mb-1 text-center bg-transparent border-grey">
-                        <h5 class="card-title">Card title</h5>
+                <div class="card my-1 flex-grow-1 mx-3">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">PHP</h5>
                     </div>
                     <img src="assets/images/php.jpeg" class="card-img-top img-fluid" alt="card-img" />
                     <div class="card-body">
@@ -178,13 +224,14 @@
                             Delectus beatae architecto vitae consequatur.
                         </small>
                     </div>
-                    <div class="card-footer text-center border-grey">
-                        <button class="btn btn-outline-primary">Button</button>
+                    <div class="card-footer text-center border-grey d-flex justify-content-between align-items-center">
+                        <span>Price : <i class="fa fa-rupee-sign"></i> 400</span>
+                        <button class="btn btn-outline-primary btn-sm">Buy</button>
                     </div>
                 </div>
-                <div class="card my-1 flex-grow-1">
-                    <div class="card-header mb-1 text-center bg-transparent border-grey">
-                        <h5 class="card-title">Card title</h5>
+                <div class="card my-1 flex-grow-1 mx-3">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">Python</h5>
                     </div>
                     <img src="assets/images/python.jpeg" class="card-img-top img-fluid" alt="card-img" />
                     <div class="card-body">
@@ -194,13 +241,14 @@
                             Delectus beatae incidunt architecto vitae consequatur.
                         </small>
                     </div>
-                    <div class="card-footer text-center border-grey">
-                        <button class="btn btn-outline-primary">Button</button>
+                    <div class="card-footer text-center border-grey d-flex justify-content-between align-items-center">
+                        <span>Price : <i class="fa fa-rupee-sign"></i> 400</span>
+                        <button class="btn btn-outline-primary btn-sm">Buy</button>
                     </div>
                 </div>
-                <div class="card my-1 flex-grow-1">
-                    <div class="card-header mb-1 text-center bg-transparent border-grey">
-                        <h5 class="card-title">Card title</h5>
+                <div class="card my-1 flex-grow-1 mx-3">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">Angular</h5>
                     </div>
                     <img src="assets/images/angular.png" class="card-img-top img-fluid" alt="card-img" />
                     <div class="card-body">
@@ -210,13 +258,14 @@
                             Delectus beatae incidunt architecto vitae consequatur.
                         </small>
                     </div>
-                    <div class="card-footer text-center border-grey">
-                        <button class="btn btn-outline-primary">Button</button>
+                    <div class="card-footer text-center border-grey d-flex justify-content-between align-items-center">
+                        <span>Price : <i class="fa fa-rupee-sign"></i> 400</span>
+                        <button class="btn btn-outline-primary btn-sm">Buy</button>
                     </div>
                 </div>
-                <div class="card my-1 flex-grow-1">
-                    <div class="card-header mb-1 text-center bg-transparent border-grey">
-                        <h5 class="card-title">Card title</h5>
+                <div class="card my-1 flex-grow-1 mx-3">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">Fasion Design</h5>
                     </div>
                     <img src="assets/images/sketch.jpeg" class="card-img-top img-fluid" alt="card-img" />
                     <div class="card-body">
@@ -226,13 +275,14 @@
                             Delectus beatae incidunt architecto vitae consequatur.
                         </small>
                     </div>
-                    <div class="card-footer text-center border-grey">
-                        <button class="btn btn-outline-primary">Button</button>
+                    <div class="card-footer text-center border-grey d-flex justify-content-between align-items-center">
+                        <span>Price : <i class="fa fa-rupee-sign"></i> 400</span>
+                        <button class="btn btn-outline-primary btn-sm">Buy</button>
                     </div>
                 </div>
-                <div class="card my-1 flex-grow-1">
-                    <div class="card-header mb-1 text-center bg-transparent border-grey">
-                        <h5 class="card-title">Card title</h5>
+                <div class="card my-1 flex-grow-1 mx-3">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">VeuJs</h5>
                     </div>
                     <img src="assets/images/veujs.png" class="card-img-top img-fluid" alt="card-img" />
                     <div class="card-body">
@@ -242,42 +292,116 @@
                             Delectus beatae incidunt architecto vitae consequatur.
                         </small>
                     </div>
-                    <div class="card-footer text-center border-grey">
-                        <button class="btn btn-outline-primary">Button</button>
+                    <div class="card-footer text-center border-grey d-flex justify-content-between align-items-center">
+                        <span>Price : <i class="fa fa-rupee-sign"></i> 400</span>
+                        <button class="btn btn-outline-primary btn-sm">Buy</button>
                     </div>
                 </div>
             </div>
         </section>
         <section class="py-3">
-
+            <h4 class="my-4 text-center">Contact Us</h4>
+            <div class="row">
+                <div class="col-12 col-sm-7 d-flex flex-column align-items-end">
+                    <input type="text" placeholder="Name" class="form-control my-3">
+                    <input type="text" placeholder="Subject" class="form-control my-3">
+                    <input type="text" placeholder="Email" class="form-control my-3">
+                    <textarea placeholder="How can we help you..?" style="height:150px"
+                        class="form-control my-3"></textarea>
+                    <button class="btn btn-outline-primary btn-sm">Send</button>
+                </div>
+                <div class="col-12 col-sm-5 my-auto">
+                    <div class="p-5 d-flex flex-column align-items-center shadow-lg rotate-card">
+                        <h4><span class="text-primary">e</span>Learning</h4>
+                        <div class="text-center">
+                            eLearning is learning utilizing electronic technologies to access educational curriculm
+                            outside traditional classroom.
+                            <h6 class="m-0">Phone : +919574879008</h6>
+                            <h6 class="m-0">www.eLearning.edu</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="my-3 bg-warning py-3 text-white">
+            <h4 class="my-3 text-center">Student's Feedback</h4>
+            <div class="d-flex flex-grow-1 feedback-saction mx-4 py-3">
+                <div class="p-3 mx-1 d-inline-flex comment-card align-items-start border bg-light text-dark shadow-lg">
+                    <div class="rounded-circle border border-warning" style="width:122px;overflow:hidden">
+                        <img src="assets/images/logo.png" class="float-left img-fluid">
+                    </div>
+                    <div class="px-3">
+                        <h6>Student A.</h6>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quaerat itaque quasi totam
+                        sed saepe laboriosam iste non aliquid dolorum!
+                    </div>
+                </div>
+                <div class="p-3 mx-1 d-inline-flex comment-card align-items-start border bg-light text-dark shadow-lg">
+                    <div class="rounded-circle border border-warning" style="width:122px;overflow:hidden">
+                        <img src="assets/images/logo.png" class="float-left img-fluid">
+                    </div>
+                    <div class="px-3">
+                        <h6>Student A.</h6>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quaerat itaque quasi totam
+                        sed saepe laboriosam iste non aliquid dolorum!
+                    </div>
+                </div>
+                <div class="p-3 mx-1 d-inline-flex comment-card align-items-start border bg-light text-dark shadow-lg">
+                    <div class="rounded-circle border border-warning" style="width:122px;overflow:hidden">
+                        <img src="assets/images/logo.png" class="float-left img-fluid">
+                    </div>
+                    <div class="px-3">
+                        <h6>Student A.</h6>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quaerat itaque quasi totam
+                        sed saepe laboriosam iste non aliquid dolorum!
+                    </div>
+                </div>
+                <div class="p-3 mx-1 d-inline-flex comment-card align-items-start border bg-light text-dark shadow-lg">
+                    <div class="rounded-circle border border-warning" style="width:122px;overflow:hidden">
+                        <img src="assets/images/logo.png" class="float-left img-fluid">
+                    </div>
+                    <div class="px-3">
+                        <h6>Student A.</h6>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quaerat itaque quasi totam
+                        sed saepe laboriosam iste non aliquid dolorum!
+                    </div>
+                </div>
+            </div>
         </section>
 
-
-        <footer class="row bg-dark mx-0 p-3">
-            <div class="col-md-6 text-justify my-3" style="color:white">
+        <footer style="background:lightgray" class="row mx-0 p-3">
+            <div class="col-sm-6 col-md-6 my-3">
                 <h4>About</h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam exercitationem voluptatibus omnis
-                fugit voluptatum pariatur? Unde corrupti ut quo sunt porro distinctio, nihil reprehenderit culpa facere
-                non in nisi ducimus?
+                eLearning provides universal access to the world's best education,partnering with top universities and
+                organizations to offer courses online.
             </div>
-            <div class="col-md-6 text-justify my-3" style="color:white">
-                <h4>About</h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam exercitationem voluptatibus omnis
-                fugit voluptatum pariatur? Unde corrupti ut quo sunt porro distinctio, nihil reprehenderit culpa facere
-                non in nisi ducimus?
+            <div class="col-sm-6 col-md-3 my-3">
+                <h4>Category</h4>
+                <a class="d-block" href="#">Web Development</a>
+                <a class="d-block" href="#">Web Design</a>
+                <a class="d-block" href="#">Android App Dev</a>
+                <a class="d-block" href="#">iOS Development</a>
+                <a class="d-block" href="#">Data Analysis</a>
             </div>
-            <div class="col-md-6 text-justify my-3" style="color:white">
-                <h4>About</h4>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam exercitationem voluptatibus omnis
-                fugit voluptatum pariatur? Unde corrupti ut quo sunt porro distinctio, nihil reprehenderit culpa facere
-                non in nisi ducimus?
+            <div class="col-sm-6 col-md-3 my-3">
+                <h4>Contact Us</h4>
+                <h6 class="m-0">Phone : +919574879008</h6>
+                <h6 class="m-0">www.eLearning.edu</h6>
             </div>
         </footer>
+        <div class="bg-dark text-light text-center">
+            Copyright &copy; || Designed By eLearning ||
+        </div>
     </div>
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/all.min.js"></script>
+<script>
+setTimeout(() => {
+    document.getElementById("server_alert").classList.add("d-none")
+}, 4000)
+</script>
 
 </html>
