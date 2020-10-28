@@ -1,3 +1,7 @@
+<?
+    session_start();
+    include("dbConfig.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,73 +26,50 @@
         border-color: green !important;
         color: black;
     }
-
-    label.btn {
-        padding: 0;
-    }
-
-    label.btn input {
-        opacity: 0;
-        position: absolute;
-    }
-
-    label.btn span {
-        text-align: center;
-        padding: 6px 12px;
-        display: block;
-    }
-
-    label.btn input:checked+span {
-        background-color: #ffc107;
-        color: #fff;
-        font-weight: 900;
-    }
     </style>
+    <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
     <title>Sign Up - eLearning</title>
 </head>
 
 <body>
-    <section class="container">
-        <div class="row">
-            <div class="col-12 text-center my-4">
+    <section class="container pb-4 d-flex align-items-center justify-content-center">
+        <div class="row mx-0">
+            <div class="col-12 text-center my-4 sticky-top bg-white">
                 <h3 class="text-warning">
-                    Welcome To <span class="text-primary">e</span>Learnig
+                    Welcome To <a href="/ELearning-Project/" class="text-warning"><span
+                            class="text-primary">e</span>Learnig</a>
                 </h3>
             </div>
-            <div class="col-12 col-md-6 my-3 border border-warning py-3 shadow-lg">
+            <div class="col-12 col-md-6 mt-3 border border-warning py-3 shadow-lg">
                 <h4 class="text-center my-4 ">Sign Up</h4>
-                <div class="d-flex">
-                    <input type="text" name="userFirstName" class="form-control text-box border-warning mx-2"
-                        placeholder="First Name">
-                    <input type="text" name="userLastName" class="form-control text-box border-warning mx-2"
-                        placeholder="Last Name">
-                </div>
-                <div class="d-flex my-3">
-                    <input type="email" name="userName" class="form-control text-box border-warning mx-2"
-                        placeholder="Enter Your Email">
-                </div>
-                <div class="d-flex">
-                    <input type="password" name="userPassword" class="form-control text-box border-warning mx-2"
-                        placeholder="Password">
-                </div>
-                <div class="d-flex flex-column my-4">
-                    <h6>Select Your Role</h6>
-                    <div class="d-flex">
-                        <div class="btn-group btn-sm px-3">
-                            <label class="btn btn-sm btn-outline-warning"><input type="radio" name="toggle"><span
-                                    class="px-3">Teacher</span></label>
-                            <label class="btn btn-sm btn-outline-warning"><input type="radio" checked
-                                    name="toggle"><span class="px-3">Student</span></label>
+                <form action="signin.php" method="POST">
+                    <div class="d-flex flex-column mx-3">
+                        <div class="d-flex my-2">
+                            <input type="text" name="userFirstName" class="form-control text-box border-warning mr-2"
+                                placeholder="First Name" required>
+                            <input type="text" name="userLastName" class="form-control text-box border-warning "
+                                placeholder="Last Name" required>
+                        </div>
+                        <input type="text" name="userMobileNumber" class="form-control text-box border-warning my-2"
+                            placeholder="Enter Your Mobile Number" required>
+                        <input type="email" name="userEmail" class="form-control text-box border-warning my-2"
+                            placeholder="Enter Your Email" required>
+                        <input type="password" name="userPassword" class="form-control text-box border-warning my-2"
+                            placeholder="Password" required>
+                        <input type="password" name="userConfirmPassword"
+                            class="form-control text-box border-warning my-2" placeholder="Confirm Password" required>
+                        <span id="invalid-password" class="invalid-feedback d-block "></span>
+                        <div class="d-flex justify-content-end mt-4 mx-2">
+                            <button type="submit" id="createAccount" name="createAccount"
+                                class="btn-outline-warning btn-sm btn">
+                                Create Account
+                            </button>
+                        </div>
+                        <div class="mt-4 border-bottom-1 py-3 shadow-lg text-center">
+                            <div>Have an account ? <a href="/ELearning-Project/login.php"> Login Now</a></div>
                         </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <button class="btn-outline-warning btn-sm btn">
-                        Continue
-                    </button>
-                </div>
-                <div>
-                </div>
+                </form>
             </div>
             <div class="col-6 d-none d-md-block my-auto px-4">
                 <svg class="img-fluid" id="becd4ed6-983c-4267-a9ef-ba1a19b5a08b" data-name="Layer 1"
@@ -201,5 +182,7 @@
         </div>
     </section>
 </body>
+<script>
+</script>
 
 </html>

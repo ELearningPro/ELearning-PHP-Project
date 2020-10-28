@@ -1,4 +1,5 @@
 <?php
+session_start();
     include("dbConfig.php");
 ?>
 <!DOCTYPE html>
@@ -12,6 +13,7 @@
     <!-- FontAwesome Css -->
     <link rel="stylesheet" href="css/all.min.css">
     <title>E-Learning</title>
+    <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
     <style>
     body {
         margin: 0;
@@ -97,8 +99,16 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
                         <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="signup.php">Sign Up</a>
+                        <?php
+                       if($_SESSION['username']){
+                           echo '<a class="nav-link" href="logout.php">Logout</a>';
+                       }else{
+                           echo '
+                           <a class="nav-link" href="signup.php">Sign Up</a>
+                           <a class="nav-link" href="login.php">Login</a>
+                           ';
+                       }
+                        ?>
                     </div>
                 </div>
             </nav>
@@ -220,7 +230,8 @@
                     <div class="card-body">
                         <small class="card-text text-muted mb-3 d-block">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure qui unde non nam voluptatem
-                            ipsa esse, similiqucvxchfhccvncve officia ad aperiam tempora blanditiis accusantium consequuntur.
+                            ipsa esse, similiqucvxchfhccvncve officia ad aperiam tempora blanditiis accusantium
+                            consequuntur.
                             Delectus beatae architecto vitae consequatur.
                         </small>
                     </div>
@@ -363,7 +374,10 @@
                     <div class="px-3">
                         <h6>Student A.</h6>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quaerat itaque quasi totam
-                        sed saepe laboriosam iste non aliquid dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quisquam dolorum aliquam omnis amet mollitia repellat porro similique accusamus facere nam, distinctio iure corporis ratione, ipsam quod provident doloribus expedita!
+                        sed saepe laboriosam iste non aliquid dolorum! Lorem ipsum dolor sit amet consectetur
+                        adipisicing elit. Necessitatibus quisquam dolorum aliquam omnis amet mollitia repellat porro
+                        similique accusamus facere nam, distinctio iure corporis ratione, ipsam quod provident doloribus
+                        expedita!
                     </div>
                 </div>
             </div>
@@ -398,10 +412,6 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/all.min.js"></script>
-<script>
-setTimeout(() => {
-    document.getElementById("server_alert").classList.add("d-none")
-}, 4000)
-</script>
+
 
 </html>
