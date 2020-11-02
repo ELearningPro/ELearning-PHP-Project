@@ -25,45 +25,54 @@
         border-color: green !important;
         color: black;
     }
+
+    #login_alert {
+        right: 0;
+        transform: translateX(200px);
+        transition: 0.4s all;
+        animation: loginAlertCome 4s;
+        top: 15px;
+        z-index: 1000000 !important;
+    }
+
+    @keyframes loginAlertCome {
+        0% {
+            transform: translateX(200x);
+        }
+
+        10% {
+            transform: translateX(-5px);
+        }
+
+        40% {
+            transform: translateX(-5px);
+        }
+
+        60% {
+            transform: translateX(-5px);
+        }
+
+        90% {
+            transform: translateX(-5px);
+        }
+
+        100% {
+            transform: translateX(200px);
+        }
+    }
     </style>
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
     <title>Login - eLearning</title>
 </head>
 
 <body>
-    <section class="container vh-100 d-flex align-items-center justify-content-center">
+    <section class="container mb-4 vh-100 d-flex align-items-center justify-content-center">
         <div class="row mx-0">
             <div class="col-12 text-center my-4">
                 <h3 class="text-warning">
                     Welcome To <a href="/ELearning-Project/" class="text-warning"><span
-                            class="text-primary">e</span>Learnig</a>
+                            class="text-primary">e</span>Learning</a>
                 </h3>
-            </div>
-            <div class="col-12 col-md-6 mt-3 border border-warning py-3 shadow-lg">
-                <h4 class="text-center my-4 ">Login</h4>
-                <form action="<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="POST">
-                    <?php
-                        if($_SESSION["varification_msg"]){
-                            echo '<div class="d-flex my-2 bg-success mx-2"><span class="mx-auto text-light">'.$_SESSION["varification_msg"].'</span></div>';
-                        }
-                    ?>
-                    <div class="d-flex my-3">
-                        <input type="email" name="email" class="form-control text-box border-warning mx-2"
-                            placeholder="Enter Your Email" required>
-                    </div>
-                    <div class="d-flex">
-                        <input type="password" name="userPassword" class="form-control text-box border-warning mx-2"
-                            placeholder="Password" required>
-                    </div>
-                    <div class="d-flex justify-content-end mt-4 mx-2">
-                        <button type="submit" name="login" class="btn-outline-warning btn-sm btn">
-                            Login
-                        </button>
-                    </div>
-                    <div class="mt-4 py-3 shadow-lg text-center">
-                        <div>Create an account ? <a href="/ELearning-Project/signup.php"> SignUp Now</a></div>
-                    </div>
-                </form>
             </div>
             <div class="col-6 d-none d-md-block my-auto px-4">
                 <svg class="img-fluid" id="f9eb83fe-2109-496c-8de2-d29751931755" data-name="Layer 1"
@@ -278,6 +287,32 @@
                     </g>
                 </svg>
             </div>
+            <div class="col-12 col-md-6 mt-3 border border-warning py-3 shadow-sm">
+                <h4 class="text-center my-4 ">Login</h4>
+                <form action="<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="POST">
+                    <?php
+                        if($_SESSION["varification_msg"]){
+                            echo '<div class="d-flex my-2 bg-success mx-2"><span class="mx-auto text-light">'.$_SESSION["varification_msg"].'</span></div>';
+                        }
+                    ?>
+                    <div class="d-flex my-3">
+                        <input type="email" name="email" class="form-control text-box border-warning mx-2"
+                            placeholder="Enter Your Email" required>
+                    </div>
+                    <div class="d-flex">
+                        <input type="password" name="userPassword" class="form-control text-box border-warning mx-2"
+                            placeholder="Password" required>
+                    </div>
+                    <div class="d-flex justify-content-end mt-4 mx-2">
+                        <button type="submit" name="login" class="btn-outline-warning btn-sm btn">
+                            Login
+                        </button>
+                    </div>
+                    <div class="mt-4 py-3 shadow-lg text-center">
+                        <div>Create an account ? <a href="/ELearning-Project/signup.php"> SignUp Now</a></div>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 </body>
@@ -307,15 +342,21 @@ location.replace("index.php");
 <?php
             }
             else{
-                echo"Password Incorrect";
+                echo'<div id="login_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
+                     Password Incorrect
+                </div>';
             }
         }
         else{
-            echo "email not verified";
+            echo '<div id="login_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
+                Email Not Verified
+            </div>';
         }
     }
     else{
-        echo "Email not valid";
+        echo '<div id="login_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
+                Email Not Valid
+            </div>';
     }
 }
 

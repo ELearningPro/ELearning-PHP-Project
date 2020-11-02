@@ -36,11 +36,11 @@
     
     // Check if database exists or server is no
     if($isConnectToDb){
-        echo '<div id="server_alert" class="alert text-center alert-primary position-fixed" style="z-index:2" role="alert">
+        echo '<div id="server_alert" class="alert text-center alert-primary position-fixed" role="alert">
         Server Conected
         </div>';
     }else{
-        echo '<div id="server_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
+        echo '<div id="server_alert" class="alert text-center alert-danger position-fixed" role="alert">
                 Server Not Conected
             </div>';
         // exit();

@@ -1,5 +1,5 @@
-<?
-    session_start();
+<?php
+   session_start();
     include("dbConfig.php");
 ?>
 <!DOCTYPE html>
@@ -26,6 +26,41 @@
         border-color: green !important;
         color: black;
     }
+
+    #signup_alert {
+        right: 0;
+        transform: translateX(200px);
+        transition: 0.4s all;
+        animation: signupAlertCome 4s;
+        top: 15px;
+        z-index: 1000000 !important;
+    }
+
+    @keyframes signupAlertCome {
+        0% {
+            transform: translateX(200x);
+        }
+
+        10% {
+            transform: translateX(-5px);
+        }
+
+        40% {
+            transform: translateX(-5px);
+        }
+
+        60% {
+            transform: translateX(-5px);
+        }
+
+        90% {
+            transform: translateX(-5px);
+        }
+
+        100% {
+            transform: translateX(200px);
+        }
+    }
     </style>
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
     <title>Sign Up - eLearning</title>
@@ -40,37 +75,7 @@
                             class="text-primary">e</span>Learnig</a>
                 </h3>
             </div>
-            <div class="col-12 col-md-6 mt-3 border border-warning py-3 shadow-lg">
-                <h4 class="text-center my-4 ">Sign Up</h4>
-                <form action="signin.php" method="POST">
-                    <div class="d-flex flex-column mx-3">
-                        <div class="d-flex my-2">
-                            <input type="text" name="userFirstName" class="form-control text-box border-warning mr-2"
-                                placeholder="First Name" required>
-                            <input type="text" name="userLastName" class="form-control text-box border-warning "
-                                placeholder="Last Name" required>
-                        </div>
-                        <input type="text" name="userMobileNumber" class="form-control text-box border-warning my-2"
-                            placeholder="Enter Your Mobile Number" required>
-                        <input type="email" name="userEmail" class="form-control text-box border-warning my-2"
-                            placeholder="Enter Your Email" required>
-                        <input type="password" name="userPassword" class="form-control text-box border-warning my-2"
-                            placeholder="Password" required>
-                        <input type="password" name="userConfirmPassword"
-                            class="form-control text-box border-warning my-2" placeholder="Confirm Password" required>
-                        <span id="invalid-password" class="invalid-feedback d-block "></span>
-                        <div class="d-flex justify-content-end mt-4 mx-2">
-                            <button type="submit" id="createAccount" name="createAccount"
-                                class="btn-outline-warning btn-sm btn">
-                                Create Account
-                            </button>
-                        </div>
-                        <div class="mt-4 border-bottom-1 py-3 shadow-lg text-center">
-                            <div>Have an account ? <a href="/ELearning-Project/login.php"> Login Now</a></div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+
             <div class="col-6 d-none d-md-block my-auto px-4">
                 <svg class="img-fluid" id="becd4ed6-983c-4267-a9ef-ba1a19b5a08b" data-name="Layer 1"
                     xmlns="http://www.w3.org/2000/svg" width="747.2108" height="570.00666"
@@ -179,6 +184,37 @@
                         transform="translate(-226.3946 -164.99667)" fill="#f9a826" />
                 </svg>
             </div>
+            <div class="col-12 col-md-6 mt-3 border border-warning py-3 shadow-lg">
+                <h4 class="text-center my-4 ">Sign Up</h4>
+                <form action="<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="POST">
+                    <div class="d-flex flex-column mx-3">
+                        <div class="d-flex my-2">
+                            <input type="text" name="userFirstName" class="form-control text-box border-warning mr-2"
+                                placeholder="First Name" required>
+                            <input type="text" name="userLastName" class="form-control text-box border-warning "
+                                placeholder="Last Name" required>
+                        </div>
+                        <input type="number" name="userMobileNumber" class="form-control text-box border-warning my-2"
+                            placeholder="Enter Your Mobile Number" required>
+                        <input type="email" name="userEmail" class="form-control text-box border-warning my-2"
+                            placeholder="Enter Your Email" required>
+                        <input type="password" name="userPassword" class="form-control text-box border-warning my-2"
+                            placeholder="Password" required>
+                        <input type="password" name="userConfirmPassword"
+                            class="form-control text-box border-warning my-2" placeholder="Confirm Password" required>
+                        <span id="invalid-password" class="invalid-feedback d-block "></span>
+                        <div class="d-flex justify-content-end mt-4 mx-2">
+                            <button type="submit" id="createAccount" name="createAccount"
+                                class="btn-outline-warning btn-sm btn">
+                                Create Account
+                            </button>
+                        </div>
+                        <div class="mt-4 border-bottom-1 py-3 shadow-lg text-center">
+                            <div>Have an account ? <a href="/ELearning-Project/login.php"> Login Now</a></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </section>
 </body>
@@ -186,3 +222,51 @@
 </script>
 
 </html>
+<?php
+    if(isset($_POST['createAccount'])){
+        $userName=mysqli_real_escape_string($isConnectToDb,$_POST['userFirstName'].' '.$_POST['userLastName']);
+        $userMobileNumber=mysqli_real_escape_string($isConnectToDb,$_POST['userMobileNumber']);
+        $email=mysqli_real_escape_string($isConnectToDb,$_POST['userEmail']);
+        $password=mysqli_real_escape_string($isConnectToDb,$_POST['userPassword']);
+        $confirmPassword=mysqli_real_escape_string($isConnectToDb,$_POST['userConfirmPassword']);
+        $encryptedPassword=password_hash($password,PASSWORD_BCRYPT);
+        $encryptedConnfirmPassword=password_hash($confirmPassword,PASSWORD_BCRYPT);
+        $emailQuery="select * from user where email='$email'";
+        $query=mysqli_query($isConnectToDb,$emailQuery);
+        $isEmail=mysqli_num_rows($query);
+        if($isEmail>0){
+             echo'<div id="signup_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
+                     Email Already Exists
+                </div>';
+        }else{
+            if($password===$confirmPassword){
+                    $token=bin2hex(random_bytes(15));
+                    $insertQuery="insert into user(user_name,email,mobile_number,password,confirmation_password,token,status) values('$userName','$email','$userMobileNumber','$encryptedPassword','$encryptedConnfirmPassword','$token','in-active')";
+                    $inserting=mysqli_query($isConnectToDb,$insertQuery);
+                    if($inserting){
+                        $subject = "Email Activation - eLearning";
+                        $body = "Hi, $userName. Click Here to activate your eLearning account http://localhost/ELearning-Project/email-varification.php?token=$token";
+                        $sent_from = "From: joesmith.me@gmail.com";
+                        if (mail( $email, $subject, $body, $sent_from)) {
+                            $_SESSION['varification_msg']="Check your mail to activate your account $email";
+                           echo '<script>location.replace("login.php")</script>';
+                        } else {
+                            echo "Email sending failed...";
+                        }
+                    }else{
+                        ?>
+<script>
+alert("not inserted");
+</script>
+<?php
+                        
+                    }
+            }
+            else{
+                echo'<div id="signup_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
+                     Password Not Match
+                </div>';
+            }
+        } 
+    }
+?>
