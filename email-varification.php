@@ -20,12 +20,12 @@ if (isset($_GET['token'])) {
                 <span style="font-size:30px;color:green">
         Your Email is Verified
         </span>
-            <button style="margin-top:10px;border:0;outline:none;padding:10px;border-radius:10px;background:gold;cursor:pointer" onclick="getLogin()">Click To Login</button>
+            <button style="margin-top:10px;border:0;outline:none;padding:10px;border-radius:10px;background:gold;cursor:pointer" onclick="redirectToLogin()">Click To Login</button>
                 </div>';
             echo '';
         } else {
             $_SESSION['varification_msg'] = "Account Already Activated.";
-            echo '<div style="margin-top:20%"><center><span style="position:relative;box-shadow:3px 3px 6px #ccc;padding:40px;border:1px solid gold;">Your Email is Already Verified <button style="position:absolute;right:-30px;bottom:-16px;margin-top:1px;padding:10px;border:0;outline:none;padding:10px;border-radius:10px;background:gold;cursor:pointer" onclick="getLogin()">Click To Login</button></span></center></div>';
+            echo '<div style="margin-top:20%"><center><span style="position:relative;box-shadow:3px 3px 6px #ccc;padding:40px;border:1px solid gold;">Your Email is Already Verified <button style="position:absolute;right:-30px;bottom:-16px;margin-top:1px;padding:10px;border:0;outline:none;padding:10px;border-radius:10px;background:gold;cursor:pointer" onclick="redirectToLogin()">Click To Login</button></span></center></div>';
         }
     } else {
         $_SESSION['varification_msg'] = "Account not Activate Please try again";
@@ -34,7 +34,7 @@ if (isset($_GET['token'])) {
 }
 ?>
 <script>
-const getLogin = () => {
+const redirectToLogin = () => {
     location.replace("login.php")
 }
 </script>

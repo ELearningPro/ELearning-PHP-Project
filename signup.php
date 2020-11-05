@@ -1,6 +1,6 @@
 <?php
-   session_start();
-    include("dbConfig.php");
+session_start();
+include("dbConfig.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,46 +27,128 @@
         color: black;
     }
 
-    #signup_alert {
-        right: 0;
-        transform: translateX(200px);
-        transition: 0.4s all;
-        animation: signupAlertCome 4s;
-        top: 15px;
-        z-index: 1000000 !important;
+
+    /*Loader*/
+    #dots5 {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 50px;
+        width: 50px;
+        margin: -25px 0 0 -25px;
     }
 
-    @keyframes signupAlertCome {
+    #dots5 span {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 50%;
+        -webkit-animation: dots5 1s infinite ease-in-out;
+        animation: dots5 1s infinite ease-in-out;
+    }
+
+    #dots5 span:nth-child(1) {
+        left: 0px;
+        -webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+    }
+
+    #dots5 span:nth-child(2) {
+        left: 15px;
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+    }
+
+    #dots5 span:nth-child(3) {
+        left: 30px;
+        -webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+
+    #dots5 span:nth-child(4) {
+        left: 45px;
+        -webkit-animation-delay: 0.5s;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes dots5 {
         0% {
-            transform: translateX(200x);
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            background: #d62d20;
         }
 
-        10% {
-            transform: translateX(-5px);
+        25% {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            background: #ffa700;
         }
 
-        40% {
-            transform: translateX(-5px);
-        }
-
-        60% {
-            transform: translateX(-5px);
-        }
-
-        90% {
-            transform: translateX(-5px);
+        50% {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            background: #008744;
         }
 
         100% {
-            transform: translateX(200px);
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            background: #0057e7;
         }
+    }
+
+    @-webkit-keyframes dots5 {
+        0% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            background: #d62d20;
+        }
+
+        25% {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            background: #ffa700;
+        }
+
+        50% {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            background: #008744;
+        }
+
+        100% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            background: #0057e7;
+        }
+    }
+
+    input.isInvalid {
+        color: red !important;
+        border-color: red !important;
+    }
+
+    input.isInvalid+span {
+        display: block !important;
+        color: red !important;
+        font-size: 12px !important;
     }
     </style>
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
     <title>Sign Up - eLearning</title>
 </head>
 
-<body>
+<body id="body">
     <section class="container pb-4 d-flex align-items-center justify-content-center">
         <div class="row mx-0">
             <div class="col-12 text-center my-4 sticky-top bg-white">
@@ -184,89 +266,165 @@
                         transform="translate(-226.3946 -164.99667)" fill="#f9a826" />
                 </svg>
             </div>
-            <div class="col-12 col-md-6 mt-3 border border-warning py-3 shadow-lg">
+            <div class="col-12 col-md-6 mt-3 position-relative border border-warning py-3 shadow-lg">
                 <h4 class="text-center my-4 ">Sign Up</h4>
-                <form action="<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="POST">
-                    <div class="d-flex flex-column mx-3">
-                        <div class="d-flex my-2">
-                            <input type="text" name="userFirstName" class="form-control text-box border-warning mr-2"
-                                placeholder="First Name" required>
-                            <input type="text" name="userLastName" class="form-control text-box border-warning "
-                                placeholder="Last Name" required>
+                <!-- <form id="formData" method="POST"> -->
+                <div class="d-flex flex-column mx-3">
+                    <div class="d-flex my-2">
+                        <div class="mr-2">
+                            <input type="text" id="firstName" name="firstName" onkeyup="isValid(event)"
+                                class="form-control text-box border-warning mr-2" placeholder="First Name" required>
+                            <span class="d-none">Please enter valid first name</span>
                         </div>
-                        <input type="number" name="userMobileNumber" class="form-control text-box border-warning my-2"
-                            placeholder="Enter Your Mobile Number" required>
-                        <input type="email" name="userEmail" class="form-control text-box border-warning my-2"
-                            placeholder="Enter Your Email" required>
-                        <input type="password" name="userPassword" class="form-control text-box border-warning my-2"
-                            placeholder="Password" required>
-                        <input type="password" name="userConfirmPassword"
-                            class="form-control text-box border-warning my-2" placeholder="Confirm Password" required>
-                        <span id="invalid-password" class="invalid-feedback d-block "></span>
-                        <div class="d-flex justify-content-end mt-4 mx-2">
-                            <button type="submit" id="createAccount" name="createAccount"
-                                class="btn-outline-warning btn-sm btn">
-                                Create Account
-                            </button>
-                        </div>
-                        <div class="mt-4 border-bottom-1 py-3 shadow-lg text-center">
-                            <div>Have an account ? <a href="/ELearning-Project/login.php"> Login Now</a></div>
+                        <div>
+                            <input type="text" id="lastName" name="lastName" onkeyup="isValid(event)"
+                                class="form-control text-box border-warning " placeholder="Last Name" required>
+                            <span class="d-none">Please enter valid last name</span>
                         </div>
                     </div>
-                </form>
+                    <input type="number" id="mobileNumber" name="mobileNumber" onkeyup="isValid(event)"
+                        class="form-control text-box border-warning my-2" placeholder="Enter Your Mobile Number"
+                        required><span class="d-none">Enter valid Mobile Number</span>
+                    <input type="email" id="email" name="email" onkeyup="isValid(event)"
+                        class="form-control text-box border-warning my-2" placeholder="Enter Your Email" required>
+                    <span class="d-none">Enter valid Email Address</span>
+                    <input type="password" id="password" onkeyup="isValid(event)" name="password"
+                        class="form-control text-box border-warning my-2" placeholder="Password" required>
+                    <span class="d-none">Password must be 8 characters</span>
+                    <input type="password" id="confirmPassword" onkeyup="isValid(event)" name="confirmPassword"
+                        class="form-control text-box border-warning my-2" placeholder="Confirm Password" required>
+                    <span class="d-none">Password was Not Match</span>
+                    <div class="d-flex justify-content-end mt-4 mx-2">
+                        <button type="submit" onclick="signup()" id="createAccount" name="createAccount"
+                            class="btn-outline-warning btn-sm btn">
+                            Create Account
+                        </button>
+                    </div>
+                    <div class="mt-4 border-bottom-1 py-3 shadow-lg text-center">
+                        <div>Have an account ? <a href="/ELearning-Project/login.php"> Login Now</a></div>
+                    </div>
+                </div>
+                <div class="position-absolute bg-dark" id="backdrop" style="opacity:0.6;    top:0;left:0"></div>
+                <!-- </form> -->
             </div>
         </div>
     </section>
 </body>
 <script>
+const formData = {
+    "firstName": "",
+    "lastName": "",
+    "mobileNumber": "",
+    "email": "",
+    "password": "",
+    "confirmPassword": ""
+}
+const isValid = (event = false) => {
+    let name, value;
+    const emailValidation =
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (event) {
+        name = event.target.name;
+        value = event.target.value
+    }
+    formData[name] = value;
+    let isCorrect = true;
+    const {
+        firstName,
+        lastName,
+        mobileNumber,
+        email,
+        password,
+        confirmPassword
+    } = formData;
+    if (firstName.trim().length >= 3) {
+        isCorrect = isCorrect && true;
+        document.getElementById("firstName").classList.remove("isInvalid")
+    } else {
+        isCorrect = isCorrect && false
+        document.getElementById("firstName").classList.add("isInvalid")
+    }
+    if (lastName.trim().length >= 3) {
+        isCorrect = isCorrect && true;
+        document.getElementById("lastName").classList.remove("isInvalid")
+    } else {
+        isCorrect = isCorrect && false
+        document.getElementById("lastName").classList.add("isInvalid")
+    }
+    if (mobileNumber.trim().length === 10) {
+        isCorrect = isCorrect && true;
+        document.getElementById("mobileNumber").classList.remove("isInvalid")
+    } else {
+        isCorrect = isCorrect && false
+        document.getElementById("mobileNumber").classList.add("isInvalid")
+    }
+    if (emailValidation.test(email)) {
+        isCorrect = isCorrect && true;
+        document.getElementById("email").classList.remove("isInvalid")
+    } else {
+        isCorrect = isCorrect && false
+        document.getElementById("email").classList.add("isInvalid")
+    }
+    if (password.trim().length >= 8) {
+        isCorrect = isCorrect && true;
+        document.getElementById("password").classList.remove("isInvalid")
+    } else {
+        isCorrect = isCorrect && false
+        document.getElementById("password").classList.add("isInvalid")
+    }
+    if (confirmPassword.trim() && confirmPassword === password) {
+        isCorrect = isCorrect && true;
+        document.getElementById("confirmPassword").classList.remove("isInvalid")
+    } else {
+        isCorrect = isCorrect && false
+        if (password.trim())
+            document.getElementById("confirmPassword").classList.add("isInvalid")
+    }
+    return isCorrect;
+}
+const signup = () => {
+    if (isValid()) {
+        let data = [];
+        for (key in formData) {
+            data.push(key + '=' + formData[key]);
+        }
+        data = data.join('&');
+        let backdrop = document.getElementById("backdrop");
+        backdrop.classList.add("h-100")
+        backdrop.classList.add("w-100")
+        let button = document.getElementById("createAccount");
+        button.innerHTML = `Please Wait..
+              <div id="dots5">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                `;
+        const requestToServer = new XMLHttpRequest();
+        requestToServer.open("POST", "signupvarification.php", true)
+        requestToServer.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        requestToServer.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                button.innerHTML = "Account Created";
+                backdrop.classList.remove("h-100")
+                backdrop.classList.remove("w-100")
+                if (this.response === "ESS") {
+                    location.replace("login.php");
+                }
+                if (this.response === "EAE") {
+                    button.innerHTML = "Create Account";
+                    let test = document.createElement("div");
+                    let text = document.createTextNode("Email Already Exists");
+                    test.appendChild(text);
+                    document.getElementById("body").appendChild(test);
+                }
+            }
+        };
+        console.log(formData, data)
+        requestToServer.send(data);
+    }
+}
 </script>
 
 </html>
-<?php
-    if(isset($_POST['createAccount'])){
-        $userName=mysqli_real_escape_string($isConnectToDb,$_POST['userFirstName'].' '.$_POST['userLastName']);
-        $userMobileNumber=mysqli_real_escape_string($isConnectToDb,$_POST['userMobileNumber']);
-        $email=mysqli_real_escape_string($isConnectToDb,$_POST['userEmail']);
-        $password=mysqli_real_escape_string($isConnectToDb,$_POST['userPassword']);
-        $confirmPassword=mysqli_real_escape_string($isConnectToDb,$_POST['userConfirmPassword']);
-        $encryptedPassword=password_hash($password,PASSWORD_BCRYPT);
-        $encryptedConnfirmPassword=password_hash($confirmPassword,PASSWORD_BCRYPT);
-        $emailQuery="select * from user where email='$email'";
-        $query=mysqli_query($isConnectToDb,$emailQuery);
-        $isEmail=mysqli_num_rows($query);
-        if($isEmail>0){
-             echo'<div id="signup_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
-                     Email Already Exists
-                </div>';
-        }else{
-            if($password===$confirmPassword){
-                    $token=bin2hex(random_bytes(15));
-                    $insertQuery="insert into user(user_name,email,mobile_number,password,confirmation_password,token,status) values('$userName','$email','$userMobileNumber','$encryptedPassword','$encryptedConnfirmPassword','$token','in-active')";
-                    $inserting=mysqli_query($isConnectToDb,$insertQuery);
-                    if($inserting){
-                        $subject = "Email Activation - eLearning";
-                        $body = "Hi, $userName. Click Here to activate your eLearning account http://localhost/ELearning-Project/email-varification.php?token=$token";
-                        $sent_from = "From: joesmith.me@gmail.com";
-                        if (mail( $email, $subject, $body, $sent_from)) {
-                            $_SESSION['varification_msg']="Check your mail to activate your account $email";
-                           echo '<script>location.replace("login.php")</script>';
-                        } else {
-                            echo "Email sending failed...";
-                        }
-                    }else{
-                        ?>
-<script>
-alert("not inserted");
-</script>
-<?php
-                        
-                    }
-            }
-            else{
-                echo'<div id="signup_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
-                     Password Not Match
-                </div>';
-            }
-        } 
-    }
-?>

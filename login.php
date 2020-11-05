@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,12 +60,152 @@
             transform: translateX(200px);
         }
     }
+
+    /*Loader*/
+    #dots5 {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 50px;
+        width: 50px;
+        margin: -25px 0 0 -25px;
+    }
+
+    #dots5 span {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: rgba(0, 0, 0, 0.25);
+        border-radius: 50%;
+        -webkit-animation: dots5 1s infinite ease-in-out;
+        animation: dots5 1s infinite ease-in-out;
+    }
+
+    #dots5 span:nth-child(1) {
+        left: 0px;
+        -webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+    }
+
+    #dots5 span:nth-child(2) {
+        left: 15px;
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+    }
+
+    #dots5 span:nth-child(3) {
+        left: 30px;
+        -webkit-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+
+    #dots5 span:nth-child(4) {
+        left: 45px;
+        -webkit-animation-delay: 0.5s;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes dots5 {
+        0% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            background: #d62d20;
+        }
+
+        25% {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            background: #ffa700;
+        }
+
+        50% {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            background: #008744;
+        }
+
+        100% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            background: #0057e7;
+        }
+    }
+
+    @-webkit-keyframes dots5 {
+        0% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            background: #d62d20;
+        }
+
+        25% {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            background: #ffa700;
+        }
+
+        50% {
+            -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+            background: #008744;
+        }
+
+        100% {
+            -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+            background: #0057e7;
+        }
+    }
+
+    .login_alert {
+        right: 0;
+        transform: translateX(200px);
+        transition: 0.4s all;
+        animation: signupAlertCome 4s;
+        top: 15px;
+        z-index: 1000000 !important;
+    }
+
+    @keyframes signupAlertCome {
+        0% {
+            transform: translateX(200x);
+        }
+
+        10% {
+            transform: translateX(-5px);
+        }
+
+        40% {
+            transform: translateX(-5px);
+        }
+
+        60% {
+            transform: translateX(-5px);
+        }
+
+        90% {
+            transform: translateX(-5px);
+        }
+
+        100% {
+            transform: translateX(200px);
+        }
+    }
     </style>
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
     <title>Login - eLearning</title>
 </head>
 
-<body>
+<body id="body">
     <section class="container mb-4 vh-100 d-flex align-items-center justify-content-center">
         <div class="row mx-0">
             <div class="col-12 text-center my-4">
@@ -289,75 +429,81 @@
             </div>
             <div class="col-12 col-md-6 mt-3 border border-warning py-3 shadow-sm">
                 <h4 class="text-center my-4 ">Login</h4>
-                <form action="<?php echo htmlentities($_SERVER['PHP_SELF'])?>" method="POST">
-                    <?php
-                        if($_SESSION["varification_msg"]){
-                            echo '<div class="d-flex my-2 bg-success mx-2"><span class="mx-auto text-light">'.$_SESSION["varification_msg"].'</span></div>';
-                        }
-                    ?>
-                    <div class="d-flex my-3">
-                        <input type="email" name="email" class="form-control text-box border-warning mx-2"
-                            placeholder="Enter Your Email" required>
-                    </div>
-                    <div class="d-flex">
-                        <input type="password" name="userPassword" class="form-control text-box border-warning mx-2"
-                            placeholder="Password" required>
-                    </div>
-                    <div class="d-flex justify-content-end mt-4 mx-2">
-                        <button type="submit" name="login" class="btn-outline-warning btn-sm btn">
-                            Login
-                        </button>
-                    </div>
-                    <div class="mt-4 py-3 shadow-lg text-center">
-                        <div>Create an account ? <a href="/ELearning-Project/signup.php"> SignUp Now</a></div>
-                    </div>
-                </form>
+                <?php
+                if ($_SESSION["varification_msg"]) {
+                    echo '<div class="d-flex my-2 bg-success mx-2"><span class="mx-auto text-center text-light">' . $_SESSION["varification_msg"] . '</span></div>';
+                }
+                ?>
+                <div class="d-flex my-3">
+                    <input type="email" id="email" class="form-control text-box border-warning mx-2"
+                        placeholder="Enter Your Email" required>
+                </div>
+                <div class="d-flex">
+                    <input type="password" id="userPassword" class="form-control text-box border-warning mx-2"
+                        placeholder="Password" required>
+                </div>
+                <div class="d-flex justify-content-end mt-4 mx-2">
+                    <button type="submit" id="login" onclick="login()" class="btn-outline-warning btn-sm btn">
+                        Login
+                    </button>
+                </div>
+                <div class="mt-4 py-3 shadow-lg text-center">
+                    <div>Create an account ? <button class="btn btn-link" onclick="signup()"> SignUp Now</button></div>
+                </div>
+                <div class="position-absolute bg-dark" id="backdrop" style="opacity:0.6;top:0;left:0"></div>
             </div>
         </div>
     </section>
+    <div id="alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert"></div>
 </body>
+<script>
+const signup = () => {
+    location.replace('signup.php')
+}
+const login = () => {
+    let backdrop = document.getElementById("backdrop");
+    backdrop.classList.add("h-100")
+    backdrop.classList.add("w-100")
+    let button = document.getElementById("login");
+    button.innerHTML = `Please Wait..
+              <div id="dots5">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                `;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("userPassword").value;
+    const requestToServer = new XMLHttpRequest();
+    requestToServer.open("POST", "loginBackend.php", true)
+    requestToServer.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    requestToServer.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            backdrop.classList.remove("h-100")
+            const element = document.getElementById('alert');
+            backdrop.classList.remove("w-100")
+            button.innerHTML = "Login"
+            element.classList.add('login_alert')
+            if (this.response === "ENVV") {
+                element.innerHTML = "Username and Password Incorrect";
+            }
+            if (this.response === "ENV") {
+                element.innerHTML = "Email Not Verified";
+            }
+            if (this.response === "PIC") {
+                element.innerHTML = "Username and Password Incorrect";
+            }
+            if (this.response === "LSS") {
+                location.replace("index.php")
+            }
+            setTimeout(() => {
+                element.classList.remove('login_alert')
+            }, 4000)
+        }
+    };
+    requestToServer.send("email=" + email + "&" + "password=" + password);
+}
+</script>
 
 </html>
-
-<?php
-include('dbConfig.php');
-if(isset($_POST['login'])){
-    $email=$_POST['email'];
-    $password=$_POST['userPassword'];
-    $isEmailIsExists="select * from user where email='$email'";
-    $executeEmailQuery=mysqli_query($isConnectToDb,$isEmailIsExists);
-    $isExists=mysqli_num_rows($executeEmailQuery);
-    if($isExists){
-        $dbRow=mysqli_fetch_assoc($executeEmailQuery);
-        $status=$dbRow['status'];
-        if($status==="active"){
-            $getPasswordFromDB=$dbRow['password'];
-            $_SESSION['username']=$dbRow['user_name'];
-            $decodedPassword=password_verify($password,$getPasswordFromDB);
-            if($decodedPassword){
-                ?>
-<script>
-location.replace("index.php");
-</script>
-<?php
-            }
-            else{
-                echo'<div id="login_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
-                     Password Incorrect
-                </div>';
-            }
-        }
-        else{
-            echo '<div id="login_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
-                Email Not Verified
-            </div>';
-        }
-    }
-    else{
-        echo '<div id="login_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert">
-                Email Not Valid
-            </div>';
-    }
-}
-
-?>
