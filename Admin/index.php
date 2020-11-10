@@ -44,5 +44,10 @@
         </div>
     </section>
 </body>
+<script>
+const login = () => {
+    location.replace("dashboard.php");
+}
+</script>
 
 </html>
