@@ -118,8 +118,8 @@
     }
 </style>
 <section class="py-3">
-    <h3 class="text-center py-2">Popular Courses</h3>
-    <div class="row card-deck position-relative" id="cards" style="min-height: 100px;">
+    <h3 class="text-center py-2" style="position: sticky;top: 80px;z-index: 1;background: white;">Popular Courses</h3>
+    <div class="row position-relative" id="cards" style="min-height: 100px;">
     </div>
 </section>
 
@@ -147,7 +147,7 @@
             </div>
             <img src="assets/CoursesImage/${cur.course_img}" class="card-img-top img-fluid" style="height:200px;width:100%" alt="card-img" />
             <div class="card-body">
-                <small class="card-text text-muted mb-3 d-block">
+                <small class="card-text text-muted mb-3 d-block" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
                     ${cur.course_desc}
                 </small>
             </div>

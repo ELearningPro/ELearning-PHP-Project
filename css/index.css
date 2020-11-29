@@ -18,6 +18,8 @@ b {
 
 .card {
   width:100%;
+  max-width: 350px;
+  margin:0 auto;
   /* min-width: 240px;
   width: 240px;
   max-width:240px; */
@@ -59,15 +61,26 @@ b {
 }
 @keyframes rotate-card {
   0% {
-    transform: rotate(15deg);
-  }
+    transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    -moz-transform: rotate(7deg);
+    -ms-transform: rotate(7deg);
+    -o-transform: rotate(7deg);
+}
 
   100% {
-    transform: rotate(-15deg);
-  }
+    transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    -o-transform: rotate(-7deg);
+}
 }
 
 @media screen and (max-width:576px){
+  .container-fluid{
+    padding: 0 !important;
+  }
  @keyframes rotate-card {
   0% {
     transform: rotate(7deg);
