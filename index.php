@@ -2,6 +2,7 @@
 session_start();
 include("dbConfig.php");
 ?>
+<!-- test -->
 <!DOCTYPE html>
 <html lang="en">
 
