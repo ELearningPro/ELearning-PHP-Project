@@ -430,7 +430,7 @@ session_start();
             <div class="col-12 col-md-6 mt-3 border border-warning py-3 shadow-sm">
                 <h4 class="text-center my-4 ">Login</h4>
                 <?php
-                if ($_SESSION["varification_msg"]) {
+                if (isset($_SESSION["varification_msg"])) {
                     echo '<div class="d-flex my-2 bg-success mx-2"><span class="mx-auto text-center text-light">' . $_SESSION["varification_msg"] . '</span></div>';
                 }
                 ?>

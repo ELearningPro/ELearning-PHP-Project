@@ -18,7 +18,7 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 <?php
-                if ($_SESSION['username']) {
+                if (isset($_SESSION['userId'])) {
                     echo '<a class="nav-link" href="logout.php">Logout</a>';
                 } else {
                     echo '

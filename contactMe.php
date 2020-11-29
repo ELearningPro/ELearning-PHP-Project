@@ -1,32 +1,40 @@
 <section class="py-3">
     <div id="feed_alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert"></div>
-    <h4 class="my-4 text-center">Your Feedback</h4>
+    <?php if (isset($_SESSION['userId'])) echo "<h4 class='my-4 text-center'>Your Feedback</h4>" ?>
     <div class="row">
-        <div class="col-12 col-sm-7 align-self-center p-relative">
-            <!-- <input type="text" placeholder="Name" class="form-control my-3"> -->
+        <?php
+        if (isset($_SESSION['userId'])) {
+            echo "
+            <div class='col-12 col-sm-7 align-self-center p-relative'>
+            <!-- <input type='text' placeholder='Name' class='form-control my-3'> -->
             <div>
-                <input type="text" id="stud_name" name="stud_name" onkeyup="isValid(event)" class="form-control text-box border-warning mr-2 my-3" placeholder="Name">
-                <span class="d-none">Please enter name</span>
+                <input type='text' id='stud_name' name='stud_name' onkeyup='isValid(event)' class='form-control text-box border-warning mr-2 my-3' placeholder='Name'>
+                <span class='d-none'>Please enter name</span>
             </div>
             <div>
-                <textarea id="feedback" name="feedback" onkeyup="isValid(event)" class="form-control text-box border-warning my-3" placeholder="How can we help you..?"></textarea>
-                <span class="d-none">Please enter Feedback</span>
+                <textarea id='feedback' name='feedback' onkeyup='isValid(event)' class='form-control text-box border-warning my-3' placeholder='How can we help you..?'></textarea>
+                <span class='d-none'>Please enter Feedback</span>
             </div>
-            <!-- <input type="text" placeholder="Subject" class="form-control my-3">
-            <input type="text" placeholder="Email" class="form-control my-3"> -->
-            <!-- <textarea placeholder="How can we help you..?" style="height:150px" class="form-control my-3"></textarea> -->
-            <div class="d-flex">
-                <button onclick="sendFeedBack()" class="btn btn-outline-primary btn-sm ml-auto" id="sendFeedback">Send Us</button>
+            <!-- <input type='text' placeholder='Subject' class='form-control my-3'>
+            <input type='text' placeholder='Email' class='form-control my-3'> -->
+            <!-- <textarea placeholder='How can we help you..?' style='height:150px' class='form-control my-3'></textarea> -->
+            <div class='d-flex'>
+                <button onclick='sendFeedBack()' class='btn btn-outline-primary btn-sm ml-auto' id='sendFeedback'>Send Us</button>
             </div>
-            <div class="position-absolute bg-dark" id="backdrop" style="opacity:0.6;top:0;left:0"></div>
+            <div class='position-absolute bg-dark' id='backdrop' style='opacity:0.6;top:0;left:0'></div>
         </div>
-        <div class="col-12 col-sm-5 my-auto">
-            <div class="p-5 d-flex flex-column align-items-center shadow-lg rotate-card">
+            ";
+        }
+        ?>
+        <div class="col-12 col-sm-5 <?php if (!isset($_SESSION['userId'])) echo "col-sm-12" ?> my-auto">
+            <div class="p-5 d-flex flex-column align-items-center shadow-lg rotate-card position-relative">
                 <h4><span class="text-primary">e</span>Learning</h4>
                 <div class="text-center">
                     eLearning is learning utilizing electronic technologies to access educational curriculm
                     outside traditional classroom.
                     <h6 class="m-0">Phone : +919574879008</h6>
+                    <h6 class="m-0">Phone : +919054383387</h6>
+                    <h6 class="m-0">Phone : +916355603440</h6>
                     <h6 class="m-0">www.eLearning.edu</h6>
                 </div>
             </div>

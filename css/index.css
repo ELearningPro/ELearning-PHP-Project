@@ -17,8 +17,10 @@ b {
 }
 
 .card {
-  min-width: 240px;
+  width:100%;
+  /* min-width: 240px;
   width: 240px;
+  max-width:240px; */
 }
 
 .rotate-card {
@@ -63,6 +65,26 @@ b {
   100% {
     transform: rotate(-15deg);
   }
+}
+
+@media screen and (max-width:576px){
+ @keyframes rotate-card {
+  0% {
+    transform: rotate(7deg);
+    -webkit-transform: rotate(7deg);
+    -moz-transform: rotate(7deg);
+    -ms-transform: rotate(7deg);
+    -o-transform: rotate(7deg);
+}
+
+  100% {
+    transform: rotate(-7deg);
+    -webkit-transform: rotate(-7deg);
+    -moz-transform: rotate(-7deg);
+    -ms-transform: rotate(-7deg);
+    -o-transform: rotate(-7deg);
+}
+} 
 }
 
 .right-fixed-btn {
@@ -218,6 +240,10 @@ b {
         top: 15px;
         z-index: 1000000 !important;
         -webkit-animation: feedbackAlertCome 4s;
+}
+.rounded-line{
+  height: 10px;
+  width: 100%;
 }
 
     @keyframes feedbackAlertCome {

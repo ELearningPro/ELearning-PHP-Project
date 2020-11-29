@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $decodedPassword = password_verify($password, $getPasswordFromDB);
             if ($decodedPassword) {
                 session_start();
-                $_SESSION['username'] = $dbRow['user_name'];
+                $_SESSION['userId'] = $dbRow['uid'];
                 echo "LSS";
             } else {
                 echo "PIC";
