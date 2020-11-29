@@ -10,36 +10,36 @@
         <div class="carousel-item active">
             <img src="assets/images/andy-falconer-qADcG-2qMd4-unsplash.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption">
-                <h5>First slide label</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <h5>Best Cousrses</h5>
+                <p>You can choose your favourite course and download it.</p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="assets/images/jeshoots-com--2vD8lIhdnw-unsplash.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h5>Learn With your faourite Tutors</h5>
+                <p>You can choose your tutor and get advantage for learning those tutor.</p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="assets/images/john-schnobrich-2FPjlAyMQTA-unsplash.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <h5>Learn With Group</h5>
+                <p>You can also learn with your friends by online meeting.</p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="assets/images/scott-graham-5fNmWej4tAA-unsplash.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h5>Smart Learning</h5>
+                <p>Learn smart not hard</p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="assets/images/thomas-park-6MePtA9EVDA-unsplash.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h5>Easy Understand</h5>
+                <p>Easily undarstood with your favourite teacher.</p>
             </div>
         </div>
     </div>

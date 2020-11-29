@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $getPasswordFromDB = $dbRow['password'];
             $decodedPassword = password_verify($password, $getPasswordFromDB);
             if ($decodedPassword) {
+                session_start();
                 $_SESSION['username'] = $dbRow['user_name'];
                 echo "LSS";
             } else {

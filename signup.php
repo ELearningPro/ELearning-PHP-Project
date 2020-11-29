@@ -133,12 +133,12 @@ include("dbConfig.php");
             }
         }
 
-        input.isInvalid {
+        input.isInvalid ,textarea.isInvalid {
             color: red !important;
             border-color: red !important;
         }
 
-        input.isInvalid+span {
+        input.isInvalid+span ,textarea.isInvalid+span {
             display: block !important;
             color: red !important;
             font-size: 12px !important;

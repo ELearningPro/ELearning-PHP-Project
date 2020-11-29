@@ -442,11 +442,14 @@ session_start();
                     <input type="password" id="userPassword" class="form-control text-box border-warning mx-2"
                         placeholder="Password" required>
                 </div>
-                <div class="d-flex justify-content-end mt-4 mx-2">
-                    <button type="submit" id="login" onclick="login()" class="btn-outline-warning btn-sm btn">
+                <div class="d-flex justify-content-between mt-4 mx-2">
+                    <button class="btn btn-link d-none" id="forgotPassword">Forgot Password</button>
+                    <button type="submit" id="login" onclick="login()" class="btn-outline-warning btn-sm btn ml-auto">
                         Login
                     </button>
                 </div>
+                <!-- <div class="mt-4 py-3 shadow-lg text-center"> -->
+                <!-- </div> -->
                 <div class="mt-4 py-3 shadow-lg text-center">
                     <div>Create an account ? <button class="btn btn-link" onclick="signup()"> SignUp Now</button></div>
                 </div>
@@ -486,20 +489,24 @@ const login = () => {
             button.innerHTML = "Login"
             element.classList.add('login_alert')
             if (this.response === "ENVV") {
-                element.innerHTML = "Username and Password Incorrect";
+                element.innerHTML = "Email Not Exists";
+                document.getElementById("forgotPassword").classList.add("d-none")
             }
             if (this.response === "ENV") {
                 element.innerHTML = "Email Not Verified";
             }
             if (this.response === "PIC") {
                 element.innerHTML = "Username and Password Incorrect";
+                document.getElementById("forgotPassword").classList.remove("d-none")
             }
             if (this.response === "LSS") {
+                element.classList.add("d-none");
                 location.replace("index.php")
             }
             setTimeout(() => {
-                element.classList.remove('login_alert')
-            }, 4000)
+                element.classList.remove("d-none");
+                element.classList.remove('login_alert');
+            }, 4000);
         }
     };
     requestToServer.send("email=" + email + "&" + "password=" + password);

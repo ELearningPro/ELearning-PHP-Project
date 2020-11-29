@@ -22,8 +22,8 @@ b {
 }
 
 .rotate-card {
-  background: linear-gradient(234deg, red, white);
-  /* animation: rotate-card 3s linear infinite alternate; */
+  background: linear-gradient(234deg, #ffc107, white);
+  animation: rotate-card 3s linear infinite alternate;
 }
 
 .feedback-saction {
@@ -52,16 +52,18 @@ b {
 .comment-card {
   min-width: 350px;
 }
+.card-img-top {
+  border-bottom: 1px solid #ffc107;
+}
+@keyframes rotate-card {
+  0% {
+    transform: rotate(15deg);
+  }
 
-/* @keyframes rotate-card {
-        0% {
-            transform: rotate(15deg);
-        }
-
-        100% {
-            transform: rotate(-15deg);
-        }
-    } */
+  100% {
+    transform: rotate(-15deg);
+  }
+}
 
 .right-fixed-btn {
   border: 1px solid orange;
@@ -206,3 +208,40 @@ b {
     background: #0057e7;
   }
 }
+
+
+.feedback_alert {
+        right: -20px;
+        transform: translateX(200px);
+        transition: 0.4s all;
+        animation: feedbackAlertCome 4s;
+        top: 15px;
+        z-index: 1000000 !important;
+        -webkit-animation: feedbackAlertCome 4s;
+}
+
+    @keyframes feedbackAlertCome {
+        0% {
+            transform: translateX(200x);
+        }
+
+        10% {
+            transform: translateX(-5px);
+        }
+
+        40% {
+            transform: translateX(-5px);
+        }
+
+        60% {
+            transform: translateX(-5px);
+        }
+
+        90% {
+            transform: translateX(-5px);
+        }
+
+        100% {
+            transform: translateX(200px);
+        }
+    }

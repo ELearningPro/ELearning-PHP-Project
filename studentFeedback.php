@@ -18,9 +18,8 @@
             </div>
             <div class="px-3">
                 <h6>Student A.</h6>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quaerat itaque quasi
-                totam
-                sed saepe laboriosam iste non aliquid dolorum!
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, eaque ipsa! Delectus perspiciatis
+                tempora iure facilis eum alias beatae neque?
             </div>
         </div>
         <div class="p-3 mx-1 d-inline-flex comment-card align-items-start border bg-light text-dark shadow-lg">

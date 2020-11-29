@@ -18,15 +18,15 @@
             <div class="navbar-nav ml-auto">
                 <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
                 <?php
-                        if ($_SESSION['username']) {
-                            echo '<a class="nav-link" href="logout.php">Logout</a>';
-                        } else {
-                            echo '
+                if ($_SESSION['username']) {
+                    echo '<a class="nav-link" href="logout.php">Logout</a>';
+                } else {
+                    echo '
                            <a class="nav-link" href="signup.php">Sign Up</a>
                            <a class="nav-link" href="login.php">Login</a>
                            ';
-                        }
-                        ?>
+                }
+                ?>
             </div>
         </div>
     </nav>
