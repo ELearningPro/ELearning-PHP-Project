@@ -229,6 +229,9 @@ session_start();
 </head>
 
 <body id="body">
+    <?php
+    if (isset($_GET['token']) == $_SESSION['forgot-token']) {
+        echo '
     <section id="data1" class="container  mb-4 d-flex align-items-center justify-content-center">
         <div class="row mx-0">
             <div class="col-12 text-center my-4">
@@ -351,8 +354,16 @@ session_start();
         </div>
     </section>
     <div id="alert" class="alert text-center alert-danger d-none position-fixed" style="z-index:2" role="alert"></div>
+        
+        ';
+    } else{
+        echo '<div style="margin-top:20%"><center><span style="position:relative;box-shadow:3px 3px 6px #ccc;padding:40px;border:1px solid gold;">Token not valid<button style="position:absolute;right:-30px;bottom:-16px;margin-top:1px;padding:10px;border:0;outline:none;padding:10px;border-radius:10px;background:gold;cursor:pointer" onclick="redirectToLogin()">Click To Login</button></span></center></div>';
+    }?>
 </body>
 <script>
+    const redirectToLogin = () => {
+    location.replace("forgot-password.php")
+}
     const signup = () => {
         location.replace('signup.php')
     }
@@ -363,12 +374,12 @@ session_start();
 
     const email = localStorage.getItem("email");
     if (!email) {
-        document.getElementById("data1").innerHTML=`
+        document.getElementById("data1").innerHTML = `
             <div class="text-center h3 p-3"> Your Link is expired redirecting to home.. </div>
         `;
-        setTimeout(()=>{
+        setTimeout(() => {
             location.replace("index.php")
-        },3000)
+        }, 3000)
     }
     const forgotPassword = () => {
         const pass = document.getElementById("password").value;

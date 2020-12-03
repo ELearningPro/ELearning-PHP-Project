@@ -1,7 +1,8 @@
 <?php
-    session_start();
-    session_destroy();
+session_start();
+session_destroy();
 ?>
 <script>
-location.replace("index.php");
+    localStorage.removeItem("userData");
+    location.replace("index.php");
 </script>

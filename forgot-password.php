@@ -386,6 +386,8 @@ session_start();
                     backdrop.classList.remove("w-100")
                     element.classList.add('forgotPassword_alert')
                     element.classList.remove("d-none");
+                    element.classList.add("alert-danger"); 
+                    element.classList.remove("alert-success"); 
                     if (this.response === "EEA") {
                         element.innerHTML = "Email Not Exists";
                     }
@@ -395,18 +397,18 @@ session_start();
                     if (this.response === "MSF") {
                         element.innerHTML = "Email send failed Please try again";
                     }
-                    if (this.response === "FSS") {
-                        location.replace("forgotPassword.php");
-                        localStorage.setItem("email",email);
+                    if (JSON.parse(this.response).status) {
+                        localStorage.setItem("email", email);
+                        element.innerHTML = JSON.parse(this.response).message;
                     }
                     setTimeout(() => {
                         element.classList.add("d-none");
                         element.classList.remove('forgotPassword_alert');
                     }, 4000);
-                button.innerHTML="Confirm";
+                    button.innerHTML = "Confirm";
                 }
             };
-            requestToServer.send("email=" + email);
+            requestToServer.send("email=" + email + "&" + "isForgot=" + true);
         } else {
             const element = document.getElementById('alert');
             element.classList.remove("d-none");

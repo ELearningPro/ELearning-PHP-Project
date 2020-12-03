@@ -14,29 +14,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $encryptedConnfirmPassword = password_hash($confirmPassword, PASSWORD_BCRYPT);
             $passConfirmation = "update user set password='$encryptedPassword',confirmation_password='$encryptedConnfirmPassword' where email='$email'";
             $executeQuery = mysqli_query($isConnectToDb, $passConfirmation);
-            if(mysqli_affected_rows($isConnectToDb)){
+            if (mysqli_affected_rows($isConnectToDb)) {
                 echo "PCS";
-                $_SESSION['forgot-token']=false;
+                $_SESSION['forgot-token'] = false;
                 // echo mysqli_error($isConnectToDb);
             }
-        }else{
-            $dbRow = mysqli_fetch_assoc($executeEmailQuery);
-            $status = $dbRow['status'];
-            if ($status === "active") {
-                $userName = $dbRow['user_name'];
-                $subject = "Forgot Password - eLearning";
-                $token = bin2hex(random_bytes(15));
-                $body = "Hi, $userName. Click Here to change your eLearning account password http://localhost/ELearning-Project/forgotPassword.php?token=$token";
-                $sent_from = "From:elearning20.info@gmail.com";
-                if (mail($email, $subject, $body, $sent_from)) {
-                    $_SESSION['forgot-token'] = $token;
-                    $_SESSION['forgot_msg'] = "Check your mail to change your account $email password";
-                    echo "FSS";
+        } else {
+            if (isset($_POST['isForgot'])) {
+
+                $dbRow = mysqli_fetch_assoc($executeEmailQuery);
+                $status = $dbRow['status'];
+                if ($status === "active") {
+                    $userName = $dbRow['user_name'];
+                    $subject = "Forgot Password - eLearning";
+                    $token = bin2hex(random_bytes(15));
+                    $body = "Hi, $userName. Click Here to change your eLearning account password http://localhost/ELearning-Project/forgotPassword.php?token=$token";
+                    $sent_from = "From:elearning20.info@gmail.com";
+                    if (mail($email, $subject, $body, $sent_from)) {
+                        $_SESSION['forgot-token'] = $token;
+                        $_SESSION['forgot_msg'] = "Check your mail to change your account $email password";
+                        echo json_encode(array('message' => 'Email Send Successfully,Check your Mail '.$email, 'status' => true));
+                    } else {
+                        echo "MSF";
+                    }
                 } else {
-                    echo "MSF";
+                    echo 'SNV';
                 }
-            } else {
-                echo 'SNV';
             }
         }
     } else {

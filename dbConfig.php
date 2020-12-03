@@ -51,6 +51,3 @@ $create=mysqli_query($isConnectToDb,$queryCreateUsersTable);
 )";
     $create = mysqli_query($isConnectToDb, $queryCreateUsersTable);
 }
-
-
-mysqli_query($isConnectToDb, $query);

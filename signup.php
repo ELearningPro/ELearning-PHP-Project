@@ -133,12 +133,14 @@ include("dbConfig.php");
             }
         }
 
-        input.isInvalid ,textarea.isInvalid {
+        input.isInvalid,
+        textarea.isInvalid {
             color: red !important;
             border-color: red !important;
         }
 
-        input.isInvalid+span ,textarea.isInvalid+span {
+        input.isInvalid+span,
+        textarea.isInvalid+span {
             display: block !important;
             color: red !important;
             font-size: 12px !important;
@@ -157,7 +159,7 @@ include("dbConfig.php");
                 </h3>
             </div>
 
-            <div class="col-6 d-none d-md-block my-auto px-4">
+            <div class="col-6 d-none d-md-block my-auto px-4 img-up-down">
                 <svg class="img-fluid" id="becd4ed6-983c-4267-a9ef-ba1a19b5a08b" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="747.2108" height="570.00666" viewBox="0 0 747.2108 570.00666">
                     <path d="M265.36558,212.82328a4.77608,4.77608,0,0,0-4.78143,4.75948l-1.17461,510.43858a4.77609,4.77609,0,0,0,4.75948,4.78144l411.21267.94627a4.77609,4.77609,0,0,0,4.78143-4.75948L681.33773,218.551a4.77608,4.77608,0,0,0-4.75947-4.78143Z" transform="translate(-226.3946 -164.99667)" fill="#e6e6e6" />
                     <path d="M280.59565,228.12384a4.77609,4.77609,0,0,0-4.78143,4.75948L274.70987,712.791a4.77607,4.77607,0,0,0,4.75947,4.78143l380.68224.876A4.77608,4.77608,0,0,0,664.933,713.689l1.10435-479.90768a4.77608,4.77608,0,0,0-4.75947-4.78143Z" transform="translate(-226.3946 -164.99667)" fill="#fff" />

@@ -405,8 +405,10 @@ session_start();
                     element.innerHTML = "Username and Password Incorrect";
                     document.getElementById("forgotPassword").classList.remove("d-none")
                 }
-                if (this.response === "LSS") {
+                const logData = JSON.parse(this.response);
+                if (logData?.status) {
                     element.classList.add("d-none");
+                    localStorage.setItem("userData",JSON.stringify(logData.user[0]))
                     location.replace("index.php")
                 }
                 setTimeout(() => {

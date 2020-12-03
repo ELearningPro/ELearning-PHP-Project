@@ -124,8 +124,12 @@
 </section>
 
 <script>
-    let element = document.getElementById("cards");
     let data = '';
+    let element = document.getElementById("cards");
+    const courseDetailHandler = (id) => {
+        localStorage.setItem("courseData", JSON.stringify(data.find(cur=>+cur.course_id=== +id)));
+        location.replace("courseDetail.php");
+    }
     element.innerHTML = `  <div id="dots5">
                     <span></span>
                     <span></span>
@@ -138,8 +142,9 @@
     requestToServer.onreadystatechange = function() {
         data = JSON.parse(this.responseText);
         let innerElement = '';
-        data.map((cur, index) => {
-            innerElement += `
+        if (data) {
+            data.map(cur => {
+                innerElement += `
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
         <div class="card my-1">
             <div class="card-header text-center">
@@ -153,11 +158,13 @@
             </div>
             <div class="card-footer text-center border-grey d-flex justify-content-between align-items-center">
                 <span>Price : <i class="fa fa-rupee-sign"></i> ${cur.course_price}</span>
-                <button class="btn btn-outline-primary btn-sm">Buy</button>
+                <button class="btn btn-outline-primary btn-sm" onclick="courseDetailHandler(${cur.course_id})">Buy</button>
             </div>
         </div>
         </div>`;
-        });
+            });
+        }
+
         element.innerHTML = innerElement;
     };
     if (!data)

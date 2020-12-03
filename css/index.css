@@ -39,7 +39,9 @@ b {
 .feedback-saction::-webkit-scrollbar {
   height: 7px;
 }
-
+.carousel-indicators>li{
+  background-color:#ffa700 !important;
+}
 .feedback-saction::-webkit-scrollbar-track {
   border-radius: 20px;
   box-shadow: inset 0 0 3px white;
