@@ -49,16 +49,16 @@ session_start();
             color: black;
         }
 
-        #login_alert {
+        #forgotPassword_alert {
             right: 0;
             transform: translateX(200px);
             transition: 0.4s all;
-            animation: loginAlertCome 4s;
+            animation: forgotPasswordAlertCome 4s;
             top: 15px;
             z-index: 1000000 !important;
         }
 
-        @keyframes loginAlertCome {
+        @keyframes forgotPasswordAlertCome {
             0% {
                 transform: translateX(200x);
             }
@@ -189,7 +189,7 @@ session_start();
             }
         }
 
-        .login_alert {
+        .forgotPassword_alert {
             right: 0;
             transform: translateX(200px);
             transition: 0.4s all;
@@ -225,15 +225,15 @@ session_start();
         }
     </style>
     <link rel="icon" href="assets/images/logo.png" type="image/x-icon">
-    <title>Login - eLearning</title>
+    <title>Forgot Password - eLearning</title>
 </head>
 
 <body id="body">
-    <section class="container mb-4 vh-100 d-flex align-items-center justify-content-center">
+    <section class="container mb-4 d-flex align-items-center justify-content-center">
         <div class="row mx-0">
             <div class="col-12 text-center my-4">
                 <h3 class="text-warning">
-                    Welcome To <a href="/ELearning-Project/" class="text-warning"><span class="text-primary">e</span>Learning</a>
+                    Forgot <a href="/ELearning-Project/" class="text-warning"><span class="text-primary">e</span>Learning</a> Password
                 </h3>
             </div>
             <div class="col-6 d-none d-md-block my-auto px-4">
@@ -333,22 +333,14 @@ session_start();
                 </svg>
             </div>
             <div class="col-12 col-md-6 mt-3 border border-warning py-3 shadow-sm">
-                <h4 class="text-center my-4 ">Login</h4>
-                <?php
-                if (isset($_SESSION["varification_msg"])) {
-                    echo '<div class="d-flex my-2 bg-success mx-2"><span class="mx-auto text-center text-light">' . $_SESSION["varification_msg"] . '</span></div>';
-                }
-                ?>
+                <h4 class="text-center my-4 ">User Email</h4>
                 <div class="d-flex my-3">
                     <input type="email" id="email" class="form-control text-box border-warning mx-2" placeholder="Enter Your Email" required>
                 </div>
-                <div class="d-flex">
-                    <input type="password" id="userPassword" class="form-control text-box border-warning mx-2" placeholder="Password" required>
-                </div>
+
                 <div class="d-flex justify-content-between mt-4 mx-2">
-                    <button class="btn btn-link d-none" id="forgotPassword" onclick="forgot()">Forgot Password</button>
-                    <button type="submit" id="login" onclick="login()" class="btn-outline-warning btn-sm btn ml-auto">
-                        Login
+                    <button type="submit" id="forgotPassword" onclick="forgotPassword()" class="btn-outline-warning btn-sm btn ml-auto">
+                        Confirm
                     </button>
                 </div>
                 <!-- <div class="mt-4 py-3 shadow-lg text-center"> -->
@@ -360,21 +352,22 @@ session_start();
             </div>
         </div>
     </section>
-    <div id="alert" class="alert text-center alert-danger position-fixed" style="z-index:2" role="alert"></div>
+    <div id="alert" class="alert text-center alert-danger d-none position-fixed" style="z-index:2" role="alert"></div>
 </body>
 <script>
     const signup = () => {
         location.replace('signup.php')
     }
-    const forgot = () => {
-        location.replace('forgot-password.php')
-    }
-    const login = () => {
-        let backdrop = document.getElementById("backdrop");
-        backdrop.classList.add("h-100")
-        backdrop.classList.add("w-100")
-        let button = document.getElementById("login");
-        button.innerHTML = `Please Wait..
+    const email = document.getElementById("email");
+    const forgotPassword = () => {
+        const emailValidation =
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (emailValidation.test(email.value)) {
+            let backdrop = document.getElementById("backdrop");
+            backdrop.classList.add("h-100")
+            backdrop.classList.add("w-100")
+            let button = document.getElementById("forgotPassword");
+            button.innerHTML = `Please Wait..
               <div id="dots5">
                     <span></span>
                     <span></span>
@@ -382,40 +375,48 @@ session_start();
                     <span></span>
                 </div>
                 `;
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("userPassword").value;
-        const requestToServer = new XMLHttpRequest();
-        requestToServer.open("POST", "loginBackend.php", true)
-        requestToServer.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        requestToServer.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                backdrop.classList.remove("h-100")
-                const element = document.getElementById('alert');
-                backdrop.classList.remove("w-100")
-                button.innerHTML = "Login"
-                element.classList.add('login_alert')
-                if (this.response === "ENVV") {
-                    element.innerHTML = "Email Not Exists";
-                    document.getElementById("forgotPassword").classList.add("d-none")
-                }
-                if (this.response === "ENV") {
-                    element.innerHTML = "Email Not Verified";
-                }
-                if (this.response === "PIC") {
-                    element.innerHTML = "Username and Password Incorrect";
-                    document.getElementById("forgotPassword").classList.remove("d-none")
-                }
-                if (this.response === "LSS") {
-                    element.classList.add("d-none");
-                    location.replace("index.php")
-                }
-                setTimeout(() => {
+            const email = document.getElementById("email").value;
+            const requestToServer = new XMLHttpRequest();
+            requestToServer.open("POST", "forgotPasswordBack.php", true)
+            requestToServer.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            requestToServer.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    backdrop.classList.remove("h-100")
+                    const element = document.getElementById('alert');
+                    backdrop.classList.remove("w-100")
+                    element.classList.add('forgotPassword_alert')
                     element.classList.remove("d-none");
-                    element.classList.remove('login_alert');
-                }, 4000);
-            }
-        };
-        requestToServer.send("email=" + email + "&" + "password=" + password);
+                    if (this.response === "EEA") {
+                        element.innerHTML = "Email Not Exists";
+                    }
+                    if (this.response === "SNV") {
+                        element.innerHTML = "Email Not Verified";
+                    }
+                    if (this.response === "MSF") {
+                        element.innerHTML = "Email send failed Please try again";
+                    }
+                    if (this.response === "FSS") {
+                        location.replace("forgotPassword.php");
+                        localStorage.setItem("email",email);
+                    }
+                    setTimeout(() => {
+                        element.classList.add("d-none");
+                        element.classList.remove('forgotPassword_alert');
+                    }, 4000);
+                button.innerHTML="Confirm";
+                }
+            };
+            requestToServer.send("email=" + email);
+        } else {
+            const element = document.getElementById('alert');
+            element.classList.remove("d-none");
+            element.classList.add('forgotPassword_alert')
+            element.innerHTML = "Please Enter Valid Email Id";
+            let id = setTimeout(() => {
+                element.classList.add("d-none");
+                element.classList.remove('forgotPassword_alert');
+            }, 4000);
+        }
     }
 </script>
 
