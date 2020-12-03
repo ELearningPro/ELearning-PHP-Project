@@ -1,0 +1,126 @@
+html {
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.navbar{
+    background: linear-gradient(90deg,rgb(138, 212, 103), rgb(31, 138, 102));
+}
+.section-1{
+    height:fit-content;
+    background: linear-gradient(90deg,rgb(138, 212, 103), rgb(31, 138, 102));
+}
+.navbar-nav >li>a{
+    transition: all 1s !important;
+}
+.navbar-nav>li>a:hover{
+    color:black !important;
+}
+.title-line::before{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    height: 5px;
+    top:2px;
+    left:-75px;
+    width:200px;
+    background: rgb(31, 138, 102);
+}
+.title-line{
+    position: relative;
+    width:50px;
+    height: 10px;
+    border:0;
+    background: rgb(31, 138, 102);
+}
+.service-img{
+    width:100px;
+}
+.all-services-btn{
+    background: linear-gradient(90deg,rgb(138, 212, 103), rgb(31, 138, 102));
+    border-radius: 50px;
+    transition:all 2s;
+}
+.all-services-btn:hover{
+    background: linear-gradient(90deg, rgba(31, 138, 102,70%),rgba(138, 212, 103,70%));
+}
+.client-info{
+    border-left:4px solid rgb(31, 138, 102);
+}
+.client-img{
+    width:60px;
+    height: 60px;
+}
+.client-img~p{
+    font-size: 12px;
+}
+footer{
+    margin-top: 150px;
+}
+.footer-info{
+    background:  linear-gradient(90deg,rgb(138, 212, 103), rgb(31, 138, 102));
+}
+@media screen and (max-width:991px){
+    .section-1-title{
+        font-size: 30px;
+    }
+    .section-1-title~p{
+        font-size: 12px;
+    }
+    .services-title h4{
+        font-size:17px;
+    }
+    .services-title{
+        font-size: 13px;
+    }
+}
+@media screen and (max-width:767px){
+    .section-1-title{
+        font-size: 20px;
+    }
+    .section-1-title~p{
+        font-size: 10px;
+    }
+    .services-title h4{
+        font-size:22px;
+    }
+    .services-title{
+        font-size: 16px;
+    }
+    .section-3-items>h2{
+        font-size: 22px;
+    }
+    .section-3-items>ul{
+        padding: 0 !important;
+    }
+    .section-3-items>ul>li{
+        font-size: 13px;
+    }
+}
+@media screen and (max-width:531px){
+    .section-2>h1{
+        font-size: 25px;
+    }
+    .services-title h4{
+        font-size:18px;
+    }
+    .services-title{
+        font-size: 14px;
+    }
+    .section-3>h1{
+        font-size: 25px;
+    }
+    .section-3-items>h2{
+        font-size: 18px;
+    }
+    .section-3-items>ul>li{
+        font-size: 10px;
+    }
+    .section-4>h1{
+        font-size: 25px;
+    }
+    .client-info{
+        font-size:14px;
+    }
+}
