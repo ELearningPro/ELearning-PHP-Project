@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $isEmailIsExists = "select * from user where email='$email'";
     $executeEmailQuery = mysqli_query($isConnectToDb, $isEmailIsExists);
     $isExists = mysqli_num_rows($executeEmailQuery);
+    echo mysqli_error($isConnectToDb);
     if ($isExists) {
         $dbRow = mysqli_fetch_assoc($executeEmailQuery);
         $status = $dbRow['status'];
