@@ -38,7 +38,7 @@
             <div class="p-3 text-dark bg-light m-2 shadow-lg">
                 <h2 class="text-center">
                     <u>
-                        Add Course
+                        Add Courses
                     </u>
                 </h2>
                 <div class='row mx-2 p-1'>

@@ -32,9 +32,9 @@
                 <div class="text-center">
                     eLearning is learning utilizing electronic technologies to access educational curriculm
                     outside traditional classroom.
-                    <h6 class="m-0">Phone : +919574879008</h6>
-                    <h6 class="m-0">Phone : +919054383387</h6>
-                    <h6 class="m-0">Phone : +916355603440</h6>
+                    <h6 class="m-0">Call on : +919574879008</h6>
+                    <h6 class="m-0">Call on : +919054383387</h6>
+                    <h6 class="m-0">Call on : +916355603440</h6>
                     <h6 class="m-0">www.eLearning.edu</h6>
                 </div>
             </div>
